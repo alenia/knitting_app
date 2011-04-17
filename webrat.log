@@ -209,3 +209,17 @@ REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/help"}
 REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
 REQUESTING PAGE: GET /projects with {} and HTTP headers {}
 REQUESTING PAGE: GET /projects/new with {} and HTTP headers {"HTTP_REFERER"=>"/projects"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /help with {} and HTTP headers {"HTTP_REFERER"=>"/about"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/help"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /projects with {} and HTTP headers {}
+REQUESTING PAGE: GET /projects/new with {} and HTTP headers {"HTTP_REFERER"=>"/projects"}
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+REQUESTING PAGE: GET /about with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /help with {} and HTTP headers {"HTTP_REFERER"=>"/about"}
+REQUESTING PAGE: GET / with {} and HTTP headers {"HTTP_REFERER"=>"/help"}
+REQUESTING PAGE: GET /signup with {} and HTTP headers {"HTTP_REFERER"=>"/"}
+REQUESTING PAGE: GET /projects with {} and HTTP headers {}
+REQUESTING PAGE: GET /projects/new with {} and HTTP headers {"HTTP_REFERER"=>"/projects"}
