@@ -14,8 +14,6 @@ KnittingApp::Application.routes.draw do
   
   match '/help', :to => 'pages#help'
   
-  match '/projects', :to => 'projects#index'
-  
   root :to => 'pages#home'
   
   resources :projects
