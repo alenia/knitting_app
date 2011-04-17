@@ -14,6 +14,10 @@ group :test do
 end
 
 
+group :development, :test do
+  gem 'awesome_print'
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

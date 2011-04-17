@@ -1,12 +1,24 @@
 KnittingApp::Application.routes.draw do
   
+  get "projects/index"
+
+  get "projects/new"
+
+  get "users/new"
+  
+  match '/signup',  :to => 'users#new'
+
   match '/contact', :to => 'pages#contact'
   
   match '/about', :to => 'pages#about'
   
   match '/help', :to => 'pages#help'
   
+  match '/projects', :to => 'projects#index'
+  
   root :to => 'pages#home'
+  
+  resources :projects
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

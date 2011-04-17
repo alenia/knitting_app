@@ -1,0 +1,20 @@
+<h3>Projects</h3>
+<table class="projects">
+	<tbody>
+		<% unless @projects.empty? %>
+			<tr>
+				<th>Project Name</th>
+				<th>Current Row</th>
+			</tr>
+			<% @projects.each do |project| %>
+				<tr>
+					<td><%= link_to project.name %></td>
+					<td><%= project.current_row %></td>
+				</tr>
+			<% end %>
+			<% end %>
+		</tbody>
+</table>
+<%= button_to "New Project", projects_new_path, :method => "get" %>
+
+				

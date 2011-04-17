@@ -1,6 +1,8 @@
 module ApplicationHelper
+  def base_title
+    "Hooks and Sticks"
+  end
   def title
-    base_title = "Knitting Tools"
     return base_title if @title.nil?
     "#{base_title} | #{@title}"
   end
