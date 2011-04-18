@@ -8,7 +8,7 @@
 			</tr>
 				<% @projects.each do |project| %>
 					<tr>
-						<td><%= link_to project.name, '#' %></td>
+						<td><%= link_to project.name, project %></td>
 						<td><%= project.current_row %></td>
 					</tr>
 				<% end %>

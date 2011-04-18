@@ -1,0 +1,6 @@
+<h1><%= "Project page for #{@project.name}"%></h1>
+Rows: <%= @project.current_row%>
+<br/>
+<%= link_to "+", project_path(:project => {:current_row => (@project.current_row + 1)}), :method => :update %>
+
+   <%#   post :update, :project => {:current_row => (project.current_row + 1) }, id: project%>
