@@ -1,0 +1,14 @@
+<h1><%= "Edit #{@project.name}"%></h1>
+<%= form_for @project do |f| %>
+	<div class="field">
+		<%= f.label :name %><br />
+		<%= f.text_field :name %>
+	</div>
+	<div class="field">
+		<%= f.label :current_row %><br />
+		<%= f.text_field :current_row, :value => 0 %>
+	</div>
+	<div class="actions">
+		<%= submit_tag "Update!" %>
+	</div>
+<% end%>

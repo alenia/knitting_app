@@ -22,6 +22,11 @@ class ProjectsController < ApplicationController
     @title = @project.name
   end
   
+  def edit
+    @project = Project.find(params[:id])
+    @title = "Edit #{@project.name}"
+  end
+  
   def index
     @title = "Projects"
     @projects = Project.all

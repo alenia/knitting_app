@@ -3,4 +3,5 @@
 <%= link_to "+", project_path(:project => {:current_row => (@project.current_row + 1)}), :method => :put, :class => "plus_button rounder" %>
 <%= link_to "-", project_path(:project => {:current_row => (@project.current_row - 1)}), :method => :put, :class => "frog_button rounder" %><br/>
 <%= button_to "Back", projects_path, :method => :get %>
+<%= button_to "Edit", edit_project_path(@project), :method => :get %>
 <%= button_to "Delete", project_path(@project), :method => :delete, :confirm => "Are you sure you want to delete your project?" %>

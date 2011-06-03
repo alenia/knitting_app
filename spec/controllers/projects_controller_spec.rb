@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe ProjectsController do
   render_views
-  describe "GET 'new'" do
-    it "should be successful" do
+  describe "new" do
+    it "should show the new page for a new project" do
       get 'new'
-      response.should be_success
+      response.body.should include "New"
     end
   end
   describe "index" do
-    it "should get index" do
+    it "should show the projects index" do
       get 'index'
       response.should be_success
     end
@@ -62,6 +62,22 @@ describe ProjectsController do
       post :update, :project => {:current_row => (project.current_row + 1) }, id: project
       Project.where(:name => "Aidez", :current_row => 42).count.should == 0
       Project.where(:name => "Aidez", :current_row => 43).count.should == 1
+    end
+    it "should be able to edit a project's name" do
+      project = Project.create(:name => "Nombre", :current_row => 0)
+      Project.where(:name => "Nom").count.should == 0
+      post :update, :project => {:name => "Nom"}, id: project
+      Project.where(:name => "Nom").count.should == 1
+    end
+  end
+  describe "edit" do
+    before do
+      @project = Project.create(:name => "Nombre", :current_row => 0)
+    end
+    it "should show the edit page to edit a project" do
+      get :edit, id: @project
+      response.body.should include "Update"
+      response.body.should include "Nombre"
     end
   end
   describe "destroy" do
