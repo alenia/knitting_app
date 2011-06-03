@@ -21,6 +21,6 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.update_attributes(params[:project])
-    redirect_to projects_path
+    redirect_to project_path
   end
 end

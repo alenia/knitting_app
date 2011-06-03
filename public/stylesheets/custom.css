@@ -92,16 +92,20 @@ a.signup_button {
   font-weight: bold;
   padding: 20px;
 }
-
+current_row {
+	font-size: 150%;
+	display: inline;
+}
 a.plus_button {
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: inline-block;
   text-align: center;
   width: 50px;
+	height: 50px;
   color: #fff;
   background: #006400;
-  font-size: 150%;
+  font-size: 210%;
   font-weight: bold;
   padding: 20px;
 }
@@ -109,12 +113,13 @@ a.plus_button {
 a.frog_button {
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: inline-block;
   text-align: center;
   width: 50px;
+	height: 50px;
   color: #fff;
   background: #640000;
-  font-size: 150%;
+  font-size: 210%;
   font-weight: bold;
   padding: 20px;
 }
@@ -125,6 +130,12 @@ a.frog_button {
   -moz-border-radius:    5px;
   -webkit-border-radius: 5px;
   border-radius:         5px;
+}
+
+.rounder {
+	-moz-border-radius:		50px;
+	-webkit-border-radius: 50px;
+	border-radius:		50px;
 }
 
 footer {

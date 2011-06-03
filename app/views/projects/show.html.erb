@@ -1,6 +1,5 @@
 <h1><%= "Project page for #{@project.name}"%></h1>
-Rows: <%= @project.current_row%>
-<br/>
-<%= link_to "+", project_path(:project => {:current_row => (@project.current_row + 1)}), :method => :update %>
-
-   <%#   post :update, :project => {:current_row => (project.current_row + 1) }, id: project%>
+<div class="current_row">Rows: <%= @project.current_row%></div>
+<%= link_to "+", project_path(:project => {:current_row => (@project.current_row + 1)}), :method => :put, :class => "plus_button rounder" %>
+<%= link_to "-", project_path(:project => {:current_row => (@project.current_row - 1)}), :method => :put, :class => "frog_button rounder" %><br/>
+<%= link_to "back", projects_path %>

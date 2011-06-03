@@ -1,0 +1,2 @@
+class PatternsController < ApplicationController
+end
