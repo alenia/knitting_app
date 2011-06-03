@@ -31,6 +31,13 @@ describe "projects" do
     click_button "Create!"
     page.should have_content "Post Failed!"
     page.should have_content "Name can't be blank."
-    
+    fill_in "project[name]", :with => "Nombre"
+    fill_in "project[current_row]", :with => "Fourty"
+    click_button "Create!"
+    page.should have_content "Current row is not a number."
+    fill_in "project[name]", :with => "Nombre"
+    fill_in "project[current_row]", :with => "3.14159"
+    click_button "Create!"
+    page.should have_content "Current row must be an integer."
   end
 end

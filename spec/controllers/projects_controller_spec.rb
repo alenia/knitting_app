@@ -29,7 +29,12 @@ describe ProjectsController do
     it "should not create a project if the name is blank" do
       post :create, :project => {:name => nil, :current_row => 42}
       post :create, :project => {:name => "   ", :current_row => 42}
-      Project.where(:current_row => 42).count.should == 0
+      Project.count.should == 0
+    end
+    it "should only create projects if the current_row is an integer" do
+      post :create, :project => {:name => "Name", :current_row => 3.14159}
+      post :create, :project => {:name => "Frank", :current_row => "hello"}
+      Project.count.should == 0
     end
   end
   describe "show" do
