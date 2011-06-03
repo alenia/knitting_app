@@ -26,6 +26,11 @@ describe ProjectsController do
       post :create, :project => {:name => "Aidez", :current_row => 42}
       Project.where(:name => "Aidez", :current_row => 42).count.should == 1
     end
+    it "should not create a project if the name is blank" do
+      post :create, :project => {:name => nil, :current_row => 42}
+      post :create, :project => {:name => "   ", :current_row => 42}
+      Project.where(:current_row => 42).count.should == 0
+    end
   end
   describe "show" do
     before do

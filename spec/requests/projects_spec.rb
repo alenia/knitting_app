@@ -23,4 +23,14 @@ describe "projects" do
     page.should have_content "Projects"
     page.should_not have_content "Sneed"
   end
+  it "should throw correct message if project name or row is invalid" do
+    visit projects_path
+    click_button "New Project"
+    fill_in "project[name]", :with => "     "
+    fill_in "project[current_row]", :with => 42
+    click_button "Create!"
+    page.should have_content "Post Failed!"
+    page.should have_content "Name can't be blank."
+    
+  end
 end

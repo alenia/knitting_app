@@ -1,8 +1,16 @@
 class ProjectsController < ApplicationController
   def create
-    project = Project.create! params[:project]
-    flash[:notice] = "Your Project was Created!"
-    redirect_to project_path(project)
+    project = Project.create params[:project]
+    if project.save
+      flash[:notice] = "Your Project was Created!"
+      redirect_to project_path(project)
+    else
+      error_string = project.errors.map do |field, error|
+        field.to_s.gsub('_',' ').capitalize + ' ' + error + '.'
+      end.join('<br/>')
+      flash[:error] = "Post Failed! <br/> #{error_string}".html_safe
+      redirect_to new_project_path
+    end
   end
   
   def new
