@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "projects" do
-  it "can create a project" do
+  it "can create, update, and delete a project" do
     visit projects_path
     click_button "New Project"
     fill_in "project[name]", :with => "Sneed"
