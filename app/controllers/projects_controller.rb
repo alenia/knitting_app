@@ -35,7 +35,13 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     test = @project.update_attributes(params[:project])
-    flash[:error] = "Current row can't drop below zero" unless test
+    unless test
+      if @project.current_row == -1
+        flash[:error] = "Current row can't drop below zero"
+      else
+        flash[:error] = "Update failed. Maybe you imputed something invalid?"
+      end
+    end
     redirect_to project_path(@project)
   end
   def destroy

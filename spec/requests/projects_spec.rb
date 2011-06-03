@@ -75,6 +75,11 @@ describe "projects" do
       page.should_not have_content "Something"
       page.should have_content "Project page for Sneed"
       page.should have_content "42"
+      click_button "Edit"
+      fill_in "project[name]", :with => "   "
+      fill_in "project[current_row]", :with => 42
+      click_button "Update!"
+      page.should have_content "Update failed."
     end
   end
 end
