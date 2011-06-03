@@ -2,10 +2,6 @@ require 'spec_helper'
 
 describe PagesController do
   render_views
-  
-  before (:each) do
-    @base_title = "Hooks and Sticks"
-  end
 
   describe "GET 'home'" do
     it "should be successful" do

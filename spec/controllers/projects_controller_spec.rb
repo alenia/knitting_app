@@ -7,10 +7,6 @@ describe ProjectsController do
       get 'new'
       response.should be_success
     end
-    it "should have the right title" do
-      get 'new'
-      response.should have_selector("title", :content => "New Project")
-    end
   end
   describe "index" do
     it "should get index" do
@@ -39,13 +35,9 @@ describe ProjectsController do
       get :show, id: @project
       response.should be_success
     end
-    it "should have the right title" do
-      get :show, id: @project
-      response.should have_selector("title", :content => "Aidez")
-    end
     it "should display the project name" do
       get :show, id: @project
-      response.should have_selector("h1", :content => "Aidez")
+      response.body.should include "Aidez"
     end
   end
   describe "update" do

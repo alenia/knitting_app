@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   def create
-    Project.create! params[:project]
-    redirect_to projects_path
+    project = Project.create! params[:project]
+    flash[:notice] = "Your Project was Created!"
+    redirect_to project_path(project)
   end
   
   def new
