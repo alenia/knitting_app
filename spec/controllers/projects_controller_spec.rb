@@ -50,4 +50,11 @@ describe ProjectsController do
       Project.where(:name => "Aidez", :current_row => 43).count.should == 1
     end
   end
+  describe "destroy" do
+    it "projects can be deleted" do
+      project = Project.create(:name => "Aidez", :current_row => 42)
+      delete :destroy, :id => project.id
+      Project.find_by_id(project.id).should be_nil
+    end
+  end
 end
