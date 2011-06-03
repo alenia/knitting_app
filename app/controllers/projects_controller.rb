@@ -29,7 +29,8 @@ class ProjectsController < ApplicationController
   
   def update
     @project = Project.find(params[:id])
-    @project.update_attributes(params[:project])
+    test = @project.update_attributes(params[:project])
+    flash[:error] = "Current row can't drop below zero" unless test
     redirect_to project_path(@project)
   end
   def destroy

@@ -23,6 +23,17 @@ describe "projects" do
     page.should have_content "Projects"
     page.should_not have_content "Sneed"
   end
+  it "sets zero for the default count, and does not let you update to a negative number" do
+    visit projects_path
+    click_button "New Project"
+    fill_in "project[name]", :with => "Something"
+    click_button "Create!"
+    page.should have_content "Your Project was Created!"
+    page.should have_content "0"
+    click_link "-"
+    page.should have_content "0"
+    page.should have_content "Current row can't drop below zero"
+  end
   it "should throw correct message if project name or row is invalid" do
     visit projects_path
     click_button "New Project"
@@ -39,5 +50,9 @@ describe "projects" do
     fill_in "project[current_row]", :with => "3.14159"
     click_button "Create!"
     page.should have_content "Current row must be an integer."
+    fill_in "project[name]", :with => "Nombre"
+    fill_in "project[current_row]", :with => "-4"
+    click_button "Create!"
+    page.should have_content "Current row must be greater than or equal to 0."
   end
 end

@@ -36,6 +36,10 @@ describe ProjectsController do
       post :create, :project => {:name => "Frank", :current_row => "hello"}
       Project.count.should == 0
     end
+    it "should only create projects if the current_row is greater than zero" do
+      post :create, :project => {:name => "Name", :current_row => -4}
+      Project.count.should == 0
+    end
   end
   describe "show" do
     before do
